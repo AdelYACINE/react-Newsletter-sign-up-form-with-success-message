@@ -1,25 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from "react";
+import Card from "./component/Card";
+import Popup from "./component/Popup";
+
+import { Context } from "./context/Context";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const { showPopup } = useContext(Context);
+
+  return <div className="App">{!showPopup ? <Card /> : <Popup />}</div>;
 }
 
 export default App;
